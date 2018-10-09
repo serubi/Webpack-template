@@ -1,12 +1,59 @@
-interface Person {
-    firstName: string;
-    lastName: string;
+// 1
+
+// function calcRectangleVolume(dimensions: any) {
+//     let width = dimensions.width;
+//     let length = dimensions.length;
+
+//     alert(width * length);
+// }
+
+// calcRectangleVolume({
+//     width: 8,
+//     length: 7.5
+// });
+
+
+// 2
+
+// interface RectangleOptions {
+//     width: number;
+//     length: number;
+// }
+
+// function calcRectangleVolume(dimensions: RectangleOptions) {
+//     let width = dimensions.width;
+//     let length = dimensions.length;
+
+//     alert(width * length);
+// }
+
+// calcRectangleVolume({
+    
+// });
+
+
+// 3
+
+interface RectangleOptions {
+    width: number;
+    length: number;
+    height?: number;
 }
 
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-let user: Person = { firstName: "John", lastName: "Doe" };
+function calcRectangleVolume(dimensions: RectangleOptions) {
+    let width = dimensions.width;
+    let length = dimensions.length;
 
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
+    if (dimensions.height) {
+        let height = dimensions.height;
+        alert(height * width * length);
+    } else {
+        alert(width * length);
+    }
+}
+
+calcRectangleVolume({
+    width: 8,
+    length: 10,
+    height: 4
+});
